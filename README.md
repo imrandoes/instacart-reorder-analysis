@@ -1,7 +1,7 @@
 What Grocery Customers Reorder and When
 An analysis of 32 million rows of grocery order data, from someone who delivers it for a living.
 Why I did this
-Every week as an Asda delivery driver, I load my van with what feels like the exact same items shift after shift. Its usually bananas, milk, and water bottles. This routine made me wonder if a tiny handful of everyday staples truly dominates grocery reorders, or if customer demand is more diverse than it looks from the driver's seat.
+Every week as an Asda delivery driver, I load my van with what feels like the exact same items shift after shift. Its usually bananas, milk, and leafy greens. This routine made me wonder if a tiny handful of everyday staples truly dominates grocery reorders, or if customer demand is more diverse than it looks from the driver's seat.
 To test my real-world instinct without touching my employer's private data, I brought the domain knowledge from the job, not the company's data, and analysed the public Instacart Market Basket dataset: ~3.4 million orders and 32.4 million order lines, queried with SQL in DuckDB
 What I expected vs. what the data showed
 What I expected: Driving a delivery van trains your brain to notice patterns. Based on my shifts, I expected a tiny, elite group of around 10 staple products to dominate repeat business and own the lion's share of all grocery reorders.
