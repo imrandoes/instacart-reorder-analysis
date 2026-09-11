@@ -1,0 +1,106 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+\f3\froman\fcharset0 Times-Italic;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c93333;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww34360\viewh21680\viewkind0
+\deftab720
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f0\b\fs48 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 What Grocery Customers Reorder and When\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 An analysis of 32 million rows of grocery order data, from someone who delivers it for a living.\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 Why I did this\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 Every week as an Asda delivery driver, I load my van with what feels like the exact same items shift after shift. Its usually bananas, milk, and water bottles. This routine made me wonder if a tiny handful of everyday staples truly dominates grocery reorders, or if customer demand is more diverse than it looks from the driver's seat.\
+To test my real-world instinct without touching my employer's private data, I brought the domain knowledge from the job, not the company's data, and analysed the 
+\f0\b public Instacart Market Basket dataset
+\f1\b0 : ~3.4 million orders and 32.4 million order lines, queried with SQL in 
+\f0\b \cf2 \strokec3 DuckDB
+\f1\b0 \cf0 \strokec2 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 What I expected vs. what the data showed\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 What I expected:
+\f1\b0  Driving a delivery van trains your brain to notice patterns. Based on my shifts, I expected a tiny, elite group of around 10 staple products to dominate repeat business and own the lion's share of all grocery reorders.\
+
+\f0\b What the data actually showed:
+\f1\b0  The data disagreed with my real-world bias. The top 10 most-reordered products account for a mere 
+\f0\b 9.6%
+\f1\b0  of all reorders. Expand the list to the top 100 products, and they still only cover 
+\f0\b 28%
+\f1\b0 .\
+
+\f0\b The honest conclusion:
+\f1\b0  Grocery reordering is concentrated, but it isn't owned by a few famous items. Widening the net from the top 10 to the top 100 (ten times as many products) only moves the share from 9.6% to 28%, so each product added pulls less weight than the last. That is the signature of a 
+\f0\b long tail
+\f1\b0 : a few big items at the head, then demand thinning out across a huge catalogue. My driver's eye was only catching the loudest, heaviest items in the crates, but no small set of products owns repeat buying.\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 The other findings \'97 when people order\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The weekend carries the week.
+\f1\b0  Ordering peaks hard on 
+\f0\b Saturday and Sunday 
+\f1\b0 due to weekly shoppings. This matches what I see on the road: those dreadful shifts where the van is packed to the roof because everyone is stocking up for the week.\
+\ls1\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 A daytime shop, not a late-night one.
+\f1\b0  Hourly volume climbs sharply from around 7 AM, peaks at 
+\f0\b 10\'9611 AM
+\f1\b0 , holds a broad plateau through mid-afternoon, then tails off in the evening. Customers lock their shopping in during the day, not late at night.\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 Caveats (the real analyst tell)\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Decoding the days.
+\f1\b0  The dataset labels days of the week 
+\f2\fs26 0
+\f1\fs24 \'96
+\f2\fs26 6
+\f1\fs24  with no key. I inferred 
+\f2\fs26 0
+\f1\fs24  and 
+\f2\fs26 1
+\f1\fs24  as 
+\f0\b Saturday and Sunday
+\f1\b0  based on the large order spike on those two days. Weekends are when people are home doing the big shop, which fits both the data and what I see on shift. It's a reasoned judgment, not a documented fact, so I'm flagging it.\
+\ls2\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The banana split.
+\f1\b0  "Banana" and "Bag of Organic Bananas" are treated as two separate SKUs. To read the single biggest staple honestly, you have to acknowledge the data splits them, even though they occupy the same mental space for the shopper.\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 Tools & how to reproduce\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 SQL / DuckDB
+\f1\b0  \'97 all five queries are in {\field{\*\fldinst{HYPERLINK "https://claude.ai/chat/queries.sql"}}{\fldrslt 
+\f2\fs26 \cf3 \ul \ulc3 \strokec3 queries.sql}}. DuckDB reads the CSVs directly, so no database import is needed.\
+\ls3\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Tableau Public
+\f1\b0  \'97 interactive dashboard: 
+\f3\i https://public.tableau.com/app/profile/imran.ahmed5104/viz/InstacartReorderAnalysis_17891275663150/Dashboard1?publish=yes
+\f1\i0 \
+\ls3\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Data
+\f1\b0  \'97 public Instacart Market Basket dataset (Kaggle). No proprietary or employer data was used.\
+}
